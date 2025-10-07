@@ -1,0 +1,53 @@
+{
+  "input_json": "hierarchical_output_final_protocol.json",
+  "output_csv": "schedule.csv",
+  "visit_patterns": [
+    "\\bS\\d+D[\\s-]?\\d+[A-Za-z]*\\b",
+    "\\bS\\d*[xX]D[\\s-]?\\d+[A-Za-z]*\\b",
+    "\\bS[xX]D[\\s-]?\\d+[A-Za-z]*\\b",
+    "\\b(?:V|P)\\d+[A-Za-z]*\\b",
+    "\\bD\\d+[A-Za-z]*\\b",
+    "\\bW\\d+[A-Za-z]*\\b",
+    "\\bM\\d+[A-Za-z]*\\b",
+    "\\b[A-Z]\\d+[A-Z]\\d+[A-Za-z]*\\b",
+    "\\bCYCLE\\s*\\d+[A-Za-z]*\\b",
+    "\\bTREAT\\s*\\d+[A-Za-z]*\\b",
+    "\\bPERIOD\\s*\\d+[A-Za-z]*\\b",
+    "\\b[A-Z]{2,4}\\d+[A-Za-z]*\\b"
+  ],
+  "cell_markers": [
+    "\\b(?:X|YES|Y)\\b",
+    "[✔✓●√■]"
+  ],
+  "header_keywords": [
+    "visit",
+    "screening", 
+    "week",
+    "day",
+    "baseline",
+    "follow.?up"
+  ],
+  "section_breaks": [
+    "^Objectives$",
+    "^Primary$", 
+    "^Secondary$",
+    "^Event type$",
+    "^Participant analysis",
+    "^Laboratory assessments$",
+    "Classification of",
+    "^Notes:$",
+    "^Endpoints?$"
+  ],
+  "procedure_filters": [
+    "visit",
+    "procedure",
+    "study week",
+    "visit window",
+    "activity",
+    "assessment"
+  ],
+  "min_visit_count": 3,
+  "min_procedures": 25,
+  "consecutive_non_procedures_threshold": 25
+}
+

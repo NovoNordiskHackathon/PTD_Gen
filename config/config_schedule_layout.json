@@ -1,0 +1,69 @@
+{
+  "visits_xlsx": "visits_with_groups.xlsx",
+  "forms_csv": "soa_matrix.csv",
+  "output_csv": "schedule_grid.csv",
+  "output_xlsx": "schedule_grid.xlsx",
+  "left_columns": [
+    "Form Label",
+    "Form Name", 
+    "Source"
+  ],
+  "extra_headers": [
+    "Common Forms",
+    "N/A",
+    "Is Form Dynamic?",
+    "Form Dynamic Criteria",
+    "Additional Programming Instructions"
+  ],
+  "event_name_mapping": {
+    "screening": "SCRN",
+    "random": "RAND", 
+    "rtsm": "RTSM",
+    "visit_pattern": "V{number}",
+    "phone_pattern": "P{number}"
+  },
+  "visit_dynamics": {
+    "rows": [
+      "Visit Dynamics (If Y, then Event should appear based on triggering criteria)",
+      "Triggering: Event",
+      "Triggering: Form", 
+      "Triggering: Item = Response (if specific response expected, else leave to accept any entered result)"
+    ]
+  },
+  "event_window_config": {
+    "rows": [
+      "Assign Visit Window",
+      "Offset Type (Previous Event, Specific Event, or None)",
+      "Offset Days (Planned Visit Date, as calculated from Offset Event)",
+      "Day Range - Early",
+      "Day Range - Late"
+    ]
+  },
+  "triggering_rules": {
+    "event_triggers": {
+      "RAND": "SCRN",
+      "follow_up": "EOT"
+    },
+    "form_triggers": {
+      "RAND": "ELIGIBILITY_CRITERIA",
+      "post_randomisation": "RANDOMISATION"
+    }
+  },
+  "styling": {
+    "header_fill": "D9E1F2",
+    "grey_fill": "E7E6E6",
+    "border_style": "thin",
+    "freeze_panes": {
+      "row": "forms_start_row",
+      "column": "col_rtsm"
+    }
+  },
+  "column_mapping": {
+    "form_label": "Form Label",
+    "form_name": "Form Name",
+    "source": "Source",
+    "is_dynamic": "Is Form Dynamic?",
+    "dynamic_criteria": "Form Dynamic Criteria"
+  }
+}
+

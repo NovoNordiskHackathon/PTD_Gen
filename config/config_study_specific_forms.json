@@ -1,0 +1,22 @@
+{
+  "instruction_keywords": [
+    "please",
+    "note",
+    "ensure",
+    "click",
+    "enter",
+    "complete",
+    "select",
+    "indicate",
+    "check",
+    "provide"
+  ],
+  "metadata_keywords": [
+    "Version\\s*:\\s*\\d+\\.\\d+",
+    "Page\\s*:\\s*\\d+\\s+of\\s+\\d+"
+  ],
+  "company_patterns": [
+    "Protocol"
+  ],
+  "date_time_pattern": "Req.*?\\(\\d{4}[-–—/]{1,2}\\d{4}\\)"
+}

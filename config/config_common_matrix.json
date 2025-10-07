@@ -1,0 +1,35 @@
+{
+  "ecrf_csv": "extracted_forms.csv",
+  "schedule_csv": "schedule.csv", 
+  "output_csv": "soa_matrix.csv",
+  "fuzzy_threshold": 0.5,
+  "include_unmapped": false,
+  "visit_column_mapping": {
+    "form_label_column": "Form Label",
+    "form_name_column": "Form Name",
+    "source_column": "Source",
+    "visits_column": "Visits",
+    "dynamic_trigger_column": "Dynamic Trigger",
+    "trigger_details_column": "Trigger Details",
+    "required_column": "Required"
+  },
+  "output_columns": {
+    "form_label": "Form Label",
+    "form_name": "Form Name", 
+    "source": "Source",
+    "is_dynamic": "Is Form Dynamic?",
+    "dynamic_criteria": "Form Dynamic Criteria"
+  },
+  "visit_parsing": {
+    "separator": ",",
+    "strip_whitespace": true,
+    "case_sensitive": false
+  },
+  "fuzzy_matching": {
+    "algorithm": "sequence_matcher",
+    "case_insensitive": true,
+    "min_score": 0.3,
+    "max_score": 1.0
+  }
+}
+

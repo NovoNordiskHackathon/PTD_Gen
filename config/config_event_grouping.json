@@ -1,0 +1,60 @@
+{
+  "input_json": "hierarchical_output_final_protocol.json",
+  "output_xlsx": "visits_with_groups.xlsx",
+  "visit_normalization": {
+    "pattern": "^([VP]\\d+)(?:\\s([a-zA-Z]+))?$",
+    "keep_suffix_length": 1,
+    "special_cases": ["P20"]
+  },
+  "event_groups": {
+    "screening": {
+      "visit_names": ["V1"],
+      "group_name": "Screening"
+    },
+    "randomisation": {
+      "visit_names": ["V2"],
+      "group_name": "Randomisation"
+    },
+    "end_of_treatment": {
+      "visit_names": ["V19"],
+      "group_name": "End of Treatment"
+    },
+    "follow_up": {
+      "visit_names": ["P20"],
+      "group_name": "Follow up"
+    },
+    "end_of_study": {
+      "visit_names": ["V21"],
+      "group_name": "End of Study"
+    }
+  },
+  "extension_detection": {
+    "search_section": "Study rationale",
+    "pattern": "(\\d+)\\s*weeks on treatment",
+    "case_insensitive": true
+  },
+  "visit_windows": {
+    "offset_calculation": "study_week * 7",
+    "early_window": -3,
+    "late_window": 3,
+    "offset_types": {
+      "first_visit": "Specific: V1 a",
+      "other_visits": "Previous"
+    }
+  },
+  "output_columns": [
+    "Event Group",
+    "Visit Name", 
+    "Study Week",
+    "Offset Days",
+    "Offset Type",
+    "Day Range - Early",
+    "Day Range - Late"
+  ],
+  "table_detection": {
+    "soa_keywords": ["Procedure"],
+    "visit_short_name_keywords": ["visit short name"],
+    "study_week_keywords": ["study week"]
+  }
+}
+

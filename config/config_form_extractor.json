@@ -1,0 +1,52 @@
+{
+  "input_json": "hierarchical_output_final_ecrf.json",
+  "output_csv": "extracted_forms.csv",
+  "required_keys": ["Form Label", "Form Name", "Source", "Visits", "Dynamic Trigger", "Trigger Details", "Required"],
+  "ignore_patterns": ["Design Notes", "Oracle item design notes", "General item design notes"],
+  "visit_patterns": [
+    "V\\d+[A-Z]*(?:-\\d+)?",
+    "P\\d+[A-Z]*(?:-\\d+)?",
+    "S\\d+D[\\s-]?\\d+[A-Za-z]*",
+    "D\\d+[A-Za-z]*",
+    "W\\d+[A-Za-z]*",
+    "M\\d+[A-Za-z]*"
+  ],
+  "trigger_patterns": [
+    "\\bform\\s+to\\s+be\\s+(dynamically\\s+)?triggered\\b",
+    "\\b(dynamically\\s+)?triggered\\s+from\\b",
+    "\\bshould\\s+trigger\\b",
+    "\\btrigger\\s+only\\s+for\\b",
+    "\\bform\\s+should\\s+trigger\\b"
+  ],
+  "source_classification": {
+    "library_indicators": [
+      "\\bstandard\\s+crf\\b",
+      "\\bnon[- ]?repeating\\s+form\\b",
+      "\\brepeating\\s+form\\b",
+      "\\bstandard\\s+form\\b",
+      "\\bcommon\\s+form\\b"
+    ],
+    "new_indicators": [
+      "\\bstudy[- ]specific\\b",
+      "\\bcustom\\b",
+      "\\bmodified\\b",
+      "\\btailored\\b",
+      "\\bprotocol[- ]specific\\b"
+    ],
+    "reference_study_indicators": [
+      "\\bref\\.?\\s+study\\b",
+      "\\breference\\s+study\\b",
+      "\\bborrowed\\s+from\\b",
+      "\\badapted\\s+from\\b"
+    ]
+  },
+  "form_name_patterns": {
+    "valid_brackets": "\\[([A-Z0-9_\\-]{3,})\\]",
+    "valid_repeating": ".*\\b(Non-)?[Rr]epeating\\b.*",
+    "invalid_patterns": [
+      "^(CRF|Form)\\s+(Date|Time|Coordinator|Designer|Notes?).*",
+      "^\\w{1,4}\\s+(Date|Time|Coordinator|Designer)\\b.*"
+    ]
+  }
+}
+
